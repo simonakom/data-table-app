@@ -1,7 +1,7 @@
 
 # Data-table App
 
-This assignment is about developing an application using javascript and bootstrap hat will combine the catalogue (representation of the products) and the CRUD table that will be used to manage the product list. 
+This assignment is about developing an application using javascript and bootstrap that will combine the catalogue (representation of the products) and the CRUD table that will be used to manage the product list. 
 
 Main tasks:
 <br>• Implement CRUD.
