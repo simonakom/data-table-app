@@ -1,7 +1,7 @@
 
 # Data-table App
 
-Application is developed using javascript and bootstrap that will combine the catalogue (representation of the products) and the CRUD table that will be used to manage the product list. 
+Application is developed using javascript and bootstrap that combines the catalogue (representation of the products) and the CRUD table that will be used to manage the product list. 
 
 Main tasks:
 <br>• Implement CRUD.
