@@ -15,8 +15,3 @@ Main tasks:
 <h4>🔹  Data table app sample - <a href="https://simonakom.github.io/data-table-app/admin.html" style="font-size:small;">View</a><h4>
 
 
-
-
-
-
-
