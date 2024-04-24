@@ -19,13 +19,17 @@ body {
 .catalog{
     font-size: 35px;
     color: #465d7a;
-    font-weight:600;
+    font-weight:500;
+}
+nav {
+    gap: 10px;
 }
 #panel {
     background-color: #6687b3;
     color:white;
     max-height: 40px;
     margin-top: 9px;
+    overflow: hidden;
 }
 #panel:hover {
     transform: scale(1.1);

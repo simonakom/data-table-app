@@ -13,7 +13,7 @@ body {
     color: #465d7a;
     font-weight:600;
 }
-.add-result {
+#add-result {
     display: none;
     background-color: #cf7a847f;
     color:  rgb(255, 255, 255);
