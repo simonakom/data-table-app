@@ -1,32 +1,31 @@
-//objektai yra localStorage ir juos gauti:
+//to get objects from localStorage:
 const products = JSON.parse(localStorage.getItem("products"));
 console.log(products)
 
-function generateStars(rating) { // rating parametras - skaicius 0-5
+function generateStars(rating) { //rating parameter - number 0-5
     const fullStar = `<i class="bi bi-star-fill"></i>`,
         halfStar = `<i class="bi bi-star-half"></i>`,
         emptyStar = '<i class="bi bi-star"></i>';
 
-let dynamicHTML ="";
-const countOfFullStars = Math.floor(rating), //tiek kokia yra sveikoji dalis (Math.floor) skaiciaus (rating)
-        halfStarShouldExist = rating - countOfFullStars >= 0.5, //True/False: jei nesveikoji skaiciaus dalis didesne nei 0.50 -  tada rodoma 4 su puse zvaizges
-        emptyStarCount =  halfStarShouldExist ? 4-countOfFullStars : 5-countOfFullStars  // Bolean: jei (halfStarShouldExist) yra true, tada 4-c(ountOfFullStars), priesingu atveju jei puses zvaigzdutes nededam tada is 5-c(ountOfFullStars)
+    let dynamicHTML ="";
+    const countOfFullStars = Math.floor(rating), //is the integer part (Math.floor) of the number (rating)
+            halfStarShouldExist = rating - countOfFullStars >= 0.5, //True/False: if part of the number is greater than 0.50, then 4 and a half starts are displayed
+            emptyStarCount =  halfStarShouldExist ? 4-countOfFullStars : 5-countOfFullStars  //Bolean: if (halfStarShouldExist) is true, then 4(countOfFullStars), otherwise if half star is not added then from 5-(countOfFullStars)
 
-//prideti zvaigzdes i dynamicHTML
-for (let i=0; i<countOfFullStars; i++) dynamicHTML+=fullStar;
-if (halfStarShouldExist) dynamicHTML+= halfStar;
-for (let i =0; i<emptyStarCount; i++) dynamicHTML+= emptyStar;
-
-return dynamicHTML;
+    //add stars to dynamicHTML
+    for (let i=0; i<countOfFullStars; i++) dynamicHTML+=fullStar;
+    if (halfStarShouldExist) dynamicHTML+= halfStar;
+    for (let i =0; i<emptyStarCount; i++) dynamicHTML+= emptyStar;
+    return dynamicHTML;
 }
 
 function showProducts() {
 	let dynamicHTML = "";
 	for (const product of products) {
-        //Einamasis produktas (product) yra (products) objekte. Kreipiames $ i einamaji produkta
+        //Current (product) is in (products) object. Refer with $ to current product.
 		dynamicHTML += 
-        //Math.round-sveikasis skaicius
-        //toFixed(2) - du skaiciai po kablelio
+        //Math.round- fill number
+        //toFixed(2) - 2 numbers after coma
         `<hr />
         <div class="product">
             <div class="product-image">
@@ -46,10 +45,10 @@ function showProducts() {
             </div>
         </div>`;
 	}
-    //Prie elemnto su klase container reikia prideti dynamicHTML:
-	document.querySelector(".container").innerHTML = dynamicHTML;
+   //Add dynamicHTML to the element with class container:
+   document.querySelector(".container").innerHTML = dynamicHTML;
 }
 
-showProducts(); //kad atsivazduotu reikia paleisti funkcija
+showProducts(); 
 
 

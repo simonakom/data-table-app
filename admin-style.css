@@ -1,8 +1,9 @@
 body {
     background-color:rgba(215, 211, 207, 0.248);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: default;
+}
+.container {
+    overflow: hidden;
 }
 .logo {
     height: 15vh;  
@@ -12,14 +13,26 @@ body {
     color: #465d7a;
     font-weight:600;
 }
+.add-result {
+    display: none;
+    background-color: #cf7a847f;
+    color:  rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 10px;  
+    max-width: 500px;
+    margin: auto;
+}
 h3 {
     color: #465d7a;
 }
-#submit {
+input, select, textarea {
+    cursor: pointer;
+}
+#submit, #resetFilters {
     background-color: #6687b3;
     color:white;
 }
-#submit:hover {
+#submit:hover, #resetFilters:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease-in-out;
     background-color: #6687b3;
@@ -27,19 +40,6 @@ h3 {
     opacity: 0.8;
     border: none;
 }
-#resetFilters {
-    background-color: #6687b3;
-    color:white;
-}
-#resetFilter:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
-    background-color: #6687b3;
-    color:white;
-    opacity: 0.8;
-    border: none;
-}
-
 #delete {
     background-color: rgba(179, 27, 47, 0.612);
     color:white;
@@ -76,44 +76,35 @@ h3 {
     opacity: 0.8;
     border: none;
 }
-.add-result {
-    display: none;
-    background-color: #cf7a847f;
-    color:  rgb(255, 255, 255);
-    border-radius: 20px;
-    padding: 10px;  
-    max-width:40%;   
-    margin: auto;
-}
-#delete {
-    gap: 20px;
-}
 #productInfo {
     border: none;
-    border-radius: 20px;
-    background-color:  rgb(194, 214, 221);
+    border-radius: 10px;
+    background-color:  rgba(255, 255, 255, 0.983);
+    max-width: 80%;
 }
 .logoSize {
-    width: 90%  
+    width: 90%;
+    max-width: 60%;
+    display: block;
+    margin: 0 auto; 
 }
-.table-responsive-custom {
-    margin: 0 10px; 
+.productId {
+    text-decoration:underline;
+    color: #5e8ac5 !important;
+    cursor: pointer;
 }
 @media screen and (max-width: 768px) {    
-    img {
-        width: 30%;
-    }   
+    .logo {
+        width: 35%;
+    }
     .d-flex {
         flex-direction: column;
         align-items: center;
-    }
-    .gap-4 {
         gap: 0!important;
     }
-
     form {
         margin: auto;
-        padding: 0 10px; /* Adjust the left and right padding as needed */
+        padding: 0 10px; 
     } 
 }
 @media screen and (max-width: 570px) {    
@@ -122,3 +113,4 @@ h3 {
         margin-left: 0;
     }
 } 
+

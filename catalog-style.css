@@ -5,22 +5,21 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-items: center;
+    cursor: default;
 }
-.title {
-    color: #465d7a;
-    font-size: 40px;
-    margin-bottom: 3%;
-    margin-top: 2%;
+.container {
+    max-width: 1000px;
+    padding: 0 20px;
+    overflow: hidden;
 }
 .logo {
     height: 15vh;   
     margin-top: 50%;
 }
-.data{
+.catalog{
     font-size: 35px;
     color: #465d7a;
-    font-weight:450;
+    font-weight:600;
 }
 #panel {
     background-color: #6687b3;
@@ -29,16 +28,12 @@ body {
     margin-top: 9px;
 }
 #panel:hover {
-transform: scale(1.1);
-transition: transform 0.3s ease-in-out;
-background-color: #6687b3;
-color:white;
-opacity: 0.8;
-border: none;
-}
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    background-color: #6687b3;
+    color:white;
+    opacity: 0.8;
+    border: none;
 }
 .product {
     display: flex;
@@ -61,7 +56,7 @@ border: none;
     margin-top:2%
 }
 .stars {
-    color: rgb(255, 208, 0);
+    color: rgb(171, 94, 199);
 }
 .product-title {
     margin: 0;
@@ -81,7 +76,7 @@ border: none;
     margin-left: 0.5rem;
 }
 .add-to-cart {
-    background-color: #f1c13eed;
+    background-color: #dac8dbed;
     color: rgb(73, 71, 71);
     border: none;
     padding: 0.5rem 1.25rem;
@@ -89,9 +84,10 @@ border: none;
     border-radius: 3px;
     width: 100%;
     cursor: pointer;
+    overflow: hidden;
 }
 .add-to-cart:hover {
-    background-color: rgb(230, 190, 10);
+    background-color: #c6b6c6ed;
 }
 .discount {
     background-color: rgba(228, 91, 91, 0.895);
@@ -99,37 +95,93 @@ border: none;
     padding: 2px 4px;
     font-size: small;
     position: relative;
-    top: 20px;
-    left: 153px;
+    top: -5px;
+    left: 120px;
+    margin-bottom: 5px;
 }
 @media screen and (max-width: 910px) {  
-.discount {
-    background-color: rgba(228, 91, 91, 0.895);
-    color: white;
-    margin-top: 12px;
-    padding: 3px 4px;
-    font-size: small;
-    position: initial;
-    }    
-.product {
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;            
+    .discount {
+        position: initial;
+    }  
+    .product {
+        display: flex;
+        flex-direction:column;
+        text-align: center;
+        align-items: center;            
     }
-.product-image {
-    width: 30%;
-    padding-bottom: 2%;
+    .product-image {
+        width: 45%;
+        padding-bottom: 2%;
     }
-.add-to-cart {   
-    width: max-content;
-    margin-left: -20px;
+    .add-to-cart {   
+        margin-bottom: 20px;
+        margin-left: -10px;
     }
 }
-@media screen and (max-width: 600px) {  
-.product-image {
-    width: 40%;
+@media screen and (max-width: 723px) {  
+    .add-to-cart {
+        width: 110%;
+        margin-left: -15px;
+    }
+}
+@media screen and (max-width: 670px) {  
+    .product-image {
+    width: 70%;
     padding-bottom: 2%;
     }
+    .add-to-cart {
+        width: 130%;
+        margin-left: -25px;
+    }
 }  
+@media screen and (max-width: 590px) {  
+    .add-to-cart {
+        width: 150%;
+        margin-left: -30px;
+    }
+}  
+@media screen and (max-width: 522px) {  
+    .add-to-cart {
+        width: 180%;
+        margin-left: -35px;
+    }
+    .logo {
+        height: 12vh;   
+    }
+    .title {
+        font-size: 35px;
+    }
+}  
+@media screen and (max-width: 470px) {  
+    .add-to-cart {
+        width: 200%;
+        margin-left: -40px;
+    }
+}  
+@media screen and (max-width: 429px) {  
+    .add-to-cart {
+        width: 240%;
+        margin-left: -45px;
+    }
+    .product-image {
+        width: 70%;
+        padding-bottom: 2%;
+    }
+}  
+@media screen and (max-width: 370px) {  
+    .add-to-cart {
+        width: 250%;
+        margin-left: -56px;
+    }
+}  
+@media screen and (max-width: 362px) {  
+    .add-to-cart {
+        width: 310%;
+    }
+}  
+@media screen and (max-width: 270px) {  
+    .add-to-cart {
+        margin-left: -30px;
+    }
+}  
+
