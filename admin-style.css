@@ -3,6 +3,7 @@ body {
     cursor: default;
 }
 .container {
+    max-width: 1200px;
     overflow: hidden;
 }
 .logo {
@@ -76,6 +77,9 @@ input, select, textarea {
     opacity: 0.8;
     border: none;
 }
+.table-secondary {
+    cursor:none;
+}
 #productInfo {
     border: none;
     border-radius: 10px;
@@ -83,7 +87,7 @@ input, select, textarea {
     max-width: 80%;
 }
 .logoSize {
-    width: 90%;
+    width: 100%;
     max-width: 60%;
     display: block;
     margin: 0 auto; 
@@ -91,7 +95,7 @@ input, select, textarea {
 .productId {
     text-decoration:underline;
     color: #5e8ac5 !important;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 @media screen and (max-width: 768px) {    
     .logo {

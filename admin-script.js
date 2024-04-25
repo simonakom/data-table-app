@@ -70,7 +70,7 @@ function filter () {
         filteredArrey = filteredArrey.filter ((product) => product.price <= maxPrice);
     }
     filteredArrey = filteredArrey.filter ((product) => product.description.toLowerCase().includes (descriptionText));
-    filteredArrey = filteredArrey.filter ((product) => product.discountPrecentage >= discountNumber);
+    filteredArrey = filteredArrey.filter ((product) => product.discountPercentage >= discountNumber);
     filteredArrey = filteredArrey.filter((product) => {
         return categoryName === 'choose...' || product.category.toLowerCase().includes(categoryName);
         });
@@ -134,7 +134,7 @@ const showaModal = (id) => {
     <div class="product-details">
         <div class="row">
             <span class="col-lg-3 fw-bold">Discount</span>
-            <span class="col-lg-1">${product.discountPrecentage}%</span>
+            <span class="col-lg-1">${product.discountPercentage}%</span>
         </div>
         <div class="row">
             <span class="col-lg-3 fw-bold">Rating</span>
@@ -174,7 +174,7 @@ event.preventDefault(); //console.log (event);
         title: titleInputElement.value,
         description: descriptionElement.value,
         price: + priceInputElement.value, // + convert to numbers
-        discountPrecentage: +discountElement.value, 
+        discountPercentage: +discountElement.value, 
         rating: +ratingElement.value,
         stock: +stockInputElement.value,
         brand: brandInputElement.value,
@@ -188,14 +188,14 @@ event.preventDefault(); //console.log (event);
     const price = priceInputElement.value;
     const stock = stockInputElement.value;
     const category = categoryInputElement.value;
-    const discountPrecentage = discountElement.value;
+    const discountPercentage = discountElement.value;
     const rating = ratingElement.value;
     const thumbnail = photoElement.value;
     const description = descriptionElement.value;
     // console.log(title), console.log(price), console.log(stock), console.log(brand), console.log(category)
 
     // Validations:
-    if (!title || !price || !stock || !brand || !category || !discountPrecentage || !rating || !thumbnail || !description)  {
+    if (!title || !price || !stock || !brand || !category || !discountPercentage || !rating || !thumbnail || !description)  {
         addResult.innerText = (`Please, fill in the complete form! \n Only number should be typed in Price/Stock/Discount/Rating`)
         addResult.style.display = 'block';
         addResult.style.backgroundColor = '#cf7a847f';
@@ -216,8 +216,8 @@ event.preventDefault(); //console.log (event);
     // Validate thumbnail size
     const thumbnailImg = new Image();
     thumbnailImg.onload = function () {
-        if (thumbnailImg.width < 600 || thumbnailImg.height < 600 || thumbnailImg.width > 1200 || thumbnailImg.height > 1200) {
-            addResult.innerText = "Thumbnail image must be at least 600x600 px up to 1200x1200px.";
+        if (thumbnailImg.width < 500 || thumbnailImg.height < 500 || thumbnailImg.width > 1200 || thumbnailImg.height > 1200) {
+            addResult.innerText = "Thumbnail image must be at least 500x500px up to 1200x1200px";
             addResult.style.display = "block";
             addResult.style.backgroundColor = "#cf7a847f";
         } else {
@@ -308,7 +308,7 @@ const updateProduct = (event)=> {
     const updatedCategory = categoryInputElement.value;
     const updatedThumbnail = photoElement.value;
     const updatedRating = +ratingElement.value;
-    const updatedDiscountPrecentage = +discountElement.value;
+    const updatedDiscountPercentage = +discountElement.value;
     const updatedDescription = descriptionElement.value;
 
     const duplicateProduct = products.find(
@@ -321,7 +321,7 @@ const updateProduct = (event)=> {
         existingProduct.category === updatedCategory &&
         existingProduct.thumbnail === updatedThumbnail &&
         existingProduct.rating === updatedRating &&
-        existingProduct.discountPrecentage === updatedDiscountPrecentage &&
+        existingProduct.discountPercentage === updatedDiscountPercentage &&
         existingProduct.description === updatedDescription
     );
 
@@ -331,60 +331,77 @@ const updateProduct = (event)=> {
         addResult.style.backgroundColor = '#cf7a847f';
         return;
     }
-    // Continue with the update if no duplicates found
-    // value will be same as in input
-    products[currentProduct].title = updatedTitle;
-    products[currentProduct].price = updatedPrice;
-    products[currentProduct].stock = updatedStock;
-    products[currentProduct].brand = updatedBrand;
-    products[currentProduct].category = updatedCategory;
-    products[currentProduct].thumbnail = updatedThumbnail;
-    products[currentProduct].rating = updatedRating;
-    products[currentProduct].discountPercentage = updatedDiscountPrecentage;
-    products[currentProduct].description = updatedDescription;
+    
+    // Validate thumbnail URL
+ const thumbnailImg = new Image();
+ thumbnailImg.onerror = function () {
+     addResult.innerText = "Invalid thumbnail image URL";
+     addResult.style.display = "block";
+     addResult.style.backgroundColor = "#cf7a847f";
+ };
+ thumbnailImg.onload = function () {
+     // Check if thumbnail dimensions are within the specified range
+     if (thumbnailImg.width < 500 || thumbnailImg.height < 500 || thumbnailImg.width > 1200 || thumbnailImg.height > 1200) {
+         addResult.innerText = "Thumbnail image must be at least 500x500px up to 1200x1200px";
+         addResult.style.display = "block";
+         addResult.style.backgroundColor = "#cf7a847f";
+     } else {
+         // Continue with update if no duplicate and thumbnail is valid
+         // Update product details
+         products[currentProduct].title = updatedTitle;
+         products[currentProduct].price = updatedPrice;
+         products[currentProduct].stock = updatedStock;
+         products[currentProduct].brand = updatedBrand;
+         products[currentProduct].category = updatedCategory;
+         products[currentProduct].thumbnail = updatedThumbnail;
+         products[currentProduct].rating = updatedRating;
+         products[currentProduct].discountPercentage = updatedDiscountPercentage;
+         products[currentProduct].description = updatedDescription;
 
-    // Validations:
-    if (!updatedTitle || !updatedPrice || !updatedStock || !updatedBrand || !updatedCategory || !updatedThumbnail || !updatedRating || !updatedDiscountPrecentage || !updatedDescription ) {
-    addResult.innerText = (`Please, fill in the complete form! \n Only number should be typed in Price/Stock/Discount/Rating`)
-    addResult.style.display = 'block';
-    addResult.style.backgroundColor = '#cf7a847f';
-    return;
-    } else {
-        addResult.style.display = 'none';
-    }
+         // Check for incomplete form
+         if (!updatedTitle || !updatedPrice || !updatedStock || !updatedBrand || !updatedCategory || !updatedThumbnail || !updatedRating || !updatedDiscountPercentage || !updatedDescription) {
+             addResult.innerText = (`Please, fill in the complete form! \n Only numbers should be typed in Price/Stock/Discount/Rating`);
+             addResult.style.display = 'block';
+             addResult.style.backgroundColor = '#cf7a847f';
+             return;
+         }
 
-    if (updatedCategory == '' || updatedCategory === 'Choose...') {
-        addResult.innerText =  ('Please select a category!');
-        addResult.style.display = 'block';
-        addResult.style.backgroundColor = '#cf7a847f';
-        return;
-    } else {
-        addResult.style.display = 'none';
-    }
+         // Check for empty category
+         if (updatedCategory === '' || updatedCategory === 'Choose...') {
+             addResult.innerText = ('Please select a category!');
+             addResult.style.display = 'block';
+             addResult.style.backgroundColor = '#cf7a847f';
+             return;
+         }
 
-    currentProduct = undefined;
-    editMode = false; 
-    submitButtonElement.onclick = createNewRecord;
-    submitButtonElement.innerText = 'Submit';
-    submitButtonElement.style.backgroundColor = '#6687b3';
+         // Reset form and display success message
+         currentProduct = undefined;
+         editMode = false;
+         submitButtonElement.onclick = createNewRecord;
+         submitButtonElement.innerText = 'Submit';
+         submitButtonElement.style.backgroundColor = '#6687b3';
 
-    // blank inputs
-    titleInputElement.value = "";
-    priceInputElement.value = "";
-    stockInputElement.value = "";
-    brandInputElement.value = "";
-    categoryInputElement.value = "";
-    photoElement.value = "";
-    ratingElement.value = "";
-    discountElement .value = "";
-    descriptionElement .value = "";
+         // Clear form inputs
+         titleInputElement.value = "";
+         priceInputElement.value = "";
+         stockInputElement.value = "";
+         brandInputElement.value = "";
+         categoryInputElement.value = "";
+         photoElement.value = "";
+         ratingElement.value = "";
+         discountElement.value = "";
+         descriptionElement.value = "";
 
-    addResult.style.display = 'block';
-    addResult.innerText = 'Selected element has been successfully updated!';
-    addResult.style.backgroundColor = '#76cd7e7f';
+         // Display success message
+         addResult.style.display = 'block';
+         addResult.innerText = 'Selected element has been successfully updated!';
+         addResult.style.backgroundColor = '#76cd7e7f';
 
-    localStorage.setItem("products", JSON.stringify(products));
-    getTableContents (products);
+         // Update table contents
+         getTableContents(products);
+     }
+ };
+ thumbnailImg.src = updatedThumbnail;
 };
 
 //Edit state:  updating the element. A certain product will be edited and its id is (id):
@@ -401,7 +418,7 @@ const setEdit = (id) => {
     categoryInputElement.value = product.category;
     photoElement.value = product.thumbnail;
     ratingElement.value = product.rating;
-    discountElement.value = product.discountPrecentage;
+    discountElement.value = product.discountPercentage;
     descriptionElement.value = product.description;
 
     submitButtonElement.innerText = 'Update';
@@ -418,3 +435,14 @@ const setEdit = (id) => {
     window.scrollTo(0, 0);
 };
 
+// Hide notes when clicked
+document.addEventListener("DOMContentLoaded", function () {
+    const addResult = document.querySelector('#add-result');
+
+    function hideResult(result) {
+        result.style.display = 'none';
+    }
+    addResult.addEventListener('click', function () {
+        hideResult(addResult);
+    });
+});

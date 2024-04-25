@@ -29,7 +29,7 @@ function showProducts() {
         `<hr />
         <div class="product">
             <div class="product-image">
-                <span class="discount"> - ${Math.round(product.discountPrecentage)} %</span>
+                <span class="discount"> - ${Math.round(product.discountPercentage)} %</span>
                 <img src="${product.thumbnail}" alt="product image" class="product-img"/>
             </div>
 
@@ -40,7 +40,7 @@ function showProducts() {
             </div>
 
             <div class="product-price">
-                <div class="price"><strong> $${(product.price * ((100 - product.discountPrecentage) / 100)).toFixed(2)}</strong><sup class="older-price">$${product.price.toFixed(2)}</sup></div>
+                <div class="price"><strong> $${(product.price * ((100 - product.discountPercentage) / 100)).toFixed(2)}</strong><sup class="older-price">$${product.price.toFixed(2)}</sup></div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>`;
