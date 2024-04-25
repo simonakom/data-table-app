@@ -7,7 +7,9 @@ body {
     overflow: hidden;
 }
 .logo {
-    height: 15vh;  
+    height: 15vh;   
+    width: auto !important;
+    margin-top: 50%;
 }
 .data{
     font-size: 35px;
@@ -98,9 +100,6 @@ input, select, textarea {
     cursor: pointer !important;
 }
 @media screen and (max-width: 768px) {    
-    .logo {
-        width: 35%;
-    }
     .d-flex {
         flex-direction: column;
         align-items: center;
@@ -111,6 +110,14 @@ input, select, textarea {
         padding: 0 10px; 
     } 
 }
+@media screen and (max-width: 522px) {  
+    .logo {
+        height: 12vh;   
+    }
+    .title {
+        font-size: 35px;
+    }
+}  
 @media screen and (max-width: 570px) {    
     form {
         width: 100%;
