@@ -16,11 +16,11 @@ Main tasks:
 <div>
     <img src="./images/main.png" alt="table" style="border-radius: 10px; display: inline-block;" />
     <img src="./images/table.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
-    <img src="./images/modal.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
+    <img src="./images/modal.pngre" alt="modal" style="border-radius: 10px; display: inline-block;" />
     <img src="./images/products.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
 
 ### Mobile version:
-   <img src="./images/resposnive-main.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
+   <img src="./images/responsive-main.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
    <img src="./images/responsive-modal.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
    <img src="./images/responsive-products.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
 </div>
