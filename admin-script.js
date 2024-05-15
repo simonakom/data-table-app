@@ -399,6 +399,9 @@ const updateProduct = (event)=> {
 
          // Update table contents
          getTableContents(products);
+
+         // Update the products array in localStorage
+        localStorage.setItem("products", JSON.stringify(products));
      }
  };
  thumbnailImg.src = updatedThumbnail;
