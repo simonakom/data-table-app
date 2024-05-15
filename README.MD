@@ -1,4 +1,4 @@
-# <span><img src="./images/inspection.png" alt=data-table style="height: 1em; vertical-align: middle;"></span> Data-table App
+# <span><img src="./images/inspection.png" alt=data-table style="height: 1em;"></span> Data-table App
 
 Responsive application is developed using javascript and bootstrap that combines the catalogue (representation of the products) and the CRUD table that is used to manage the product list. 
 
