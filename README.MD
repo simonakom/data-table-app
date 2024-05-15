@@ -13,12 +13,24 @@ Main tasks:
 
 <h4>🔹  Data table app sample - <a href="https://simonakom.github.io/data-table-app/admin.html" style="font-size:small;">View</a><h4>
 
-<div style="text-align: center;">
+
+### Desktop version:
+<div>
     <img src="./images/main.png" alt="table" style="border-radius: 10px; display: inline-block;" />
     <img src="./images/table.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
     <img src="./images/modal.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
     <img src="./images/products.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
+
+### Mobile version:
+   <img src="./images/resposnive-main.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
+   <img src="./images/responsive-modal.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
+   <img src="./images/responsive-products.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
 </div>
+
+
+
+
+
 
 
 

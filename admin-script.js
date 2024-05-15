@@ -130,7 +130,7 @@ const showaModal = (id) => {
 
     let dynamicHTML = 
     `<div id="modalBody" style="width:100%; height: 100%;"><div style="max-width: 58%; margin: 0 auto">
-    <img src="${product.thumbnail}" class="my-3 logoSize rounded-5" alt="Product photo"/>
+    <img src="${product.thumbnail}" class="my-3 logoSize rounded-2" alt="Product photo"/>
     <div class="product-details">
         <div class="row">
             <span class="col-lg-3 fw-bold">Discount</span>
