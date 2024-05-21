@@ -20,9 +20,9 @@ Main tasks:
     <img src="./images/products.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
 
 ### Mobile version:
-   <img src="./images/responsive-main.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
-   <img src="./images/responsive-modal.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
-   <img src="./images/responsive-products.png" alt="modal" style="border-radius: 10px; display: inline-block;" />
+   <img src="./images/responsive-main.png" alt="modal" width="300" style="border-radius: 5px;" />
+   <img src="./images/responsive-modal.png" alt="modal" width="300" style="border-radius: 5px;" />
+   <img src="./images/responsive-products.png" alt="modal" width="300" style="border-radius: 5px;" />
 </div>
 
 
